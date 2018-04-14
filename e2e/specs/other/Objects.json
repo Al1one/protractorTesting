@@ -1,0 +1,22 @@
+{
+
+  "testsiteurl":"https://gmail.com",
+
+  "locators": {
+    "loginpage":{
+      "username":"//*[@id='identifierId']",
+      "next":"identifierNext"
+    }
+
+  },
+
+  "userdetails":{
+
+    "username1":"intel.brute@gmail.com",
+    "password1":"Test123test",
+    "username2":"intel.brute1@gmail.com",
+    "password2":"Test123test"
+
+  }
+
+}
