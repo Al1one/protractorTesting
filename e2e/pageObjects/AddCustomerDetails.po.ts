@@ -10,21 +10,23 @@ const AddCustomerDetails = function () {
 
   this.gotoAddCustomer = function () {
 
-    element(by.ngClick(OR.locators.addcustomerdetailspage.addcustomerbutton)).click();
+    // element(by.ngClick(OR.locators.addcustomerdetailspage.addcustomerbutton)).click();
+    element(by.css('[ng-click="addCust()"]')).click();
     return this;
 
   };
 
   this.gotoOpenAccount = function () {
 
-    element(by.ngClick(OR.locators.addcustomerdetailspage.openAccount)).click();
+    // element(by.ngClick(OR.locators.addcustomerdetailspage.openAccount)).click();
+    element(by.css('[ng-click="openAccount()"]')).click();
     return this;
 
   };
 
   this.gotoCustomerSearch = function () {
 
-    element(by.buttonText('Customers')).click();
+    element(by.css('[ng-click="showCust()"]')).click();
     return this;
 
   };
@@ -49,10 +51,10 @@ const AddCustomerDetails = function () {
 
   };
 
-  this.openAccount = function (customer, currency) {
+  this.openAccount = function (customerId, currencyId) {
 
-    mySelect.selectByText(customer);
-    currSelect.selectByText(currency);
+    mySelect.selectByValue(customerId);
+    currSelect.selectByValue(currencyId);
     element(by.buttonText('Process')).click();
     browser.sleep(2000);
 
@@ -68,17 +70,22 @@ const AddCustomerDetails = function () {
 
   };
 
-  this.validateCustomerRecords = function () {
+  this.validateCustomerRecords = function (fName, lName, pCode, accNumber) {
 
-    element(by.model('searchCustomer')).sendKeys('Maksym');
+    element(by.model('searchCustomer')).sendKeys(fName);
     const firstName = element(by.repeater('cust in Customers').row(0).column('cust.fName'));
+    element(by.model('searchCustomer')).sendKeys(lName);
+    const lastName = element(by.repeater('cust in Customers').row(0).column('cust.lName'));
+    element(by.model('searchCustomer')).sendKeys(pCode);
+    const postCode = element(by.repeater('cust in Customers').row(0).column('cust.pCode'));
+    element(by.model('searchCustomer')).sendKeys(accNumber);
+    const accountNumber = element(by.repeater('account in cust.accountNo').row(0).column('cust.accountNo'));
 
-    firstName.getText().then(function (text) {
-      console.log(text);
-    });
+    // firstName.getText().then(function (text) {
+    //   console.log(text);
+    // });
 
-    expect(firstName.getText()).toEqual('Maksym');
-    browser.sleep(2000);
+
 
     return this;
 

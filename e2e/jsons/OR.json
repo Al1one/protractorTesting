@@ -1,6 +1,7 @@
 {
 
   "testsiteurl":"http://www.way2automation.com/angularjs-protractor/banking/#/login",
+  "loggedURL":"http://www.way2automation.com/angularjs-protractor/banking/#/manager",
 
   "locators":{
 
@@ -21,11 +22,22 @@
 
       "testdata":{
 
-        "fName":"Maksym",
-        "lName":"Dragomirov",
-        "pCode":"79032"
+        "fName1":"Maksym",
+        "lName1":"Dragomirov",
+        "pCode1":"79032",
+
+        "fName2":"Kenn",
+        "lName2":"Stevenson",
+        "pCode2":"1100398",
+
+        "fName3":"Incredible",
+        "lName3":"HULK",
+        "pCode3":"777"
 
       }
+    },
+    "openAccountDetails":{
+
     }
   }
 }
