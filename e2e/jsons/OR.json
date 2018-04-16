@@ -25,18 +25,23 @@
         "fName1":"Maksym",
         "lName1":"Dragomirov",
         "pCode1":"79032",
+        "accountNum1":"1016",
 
         "fName2":"Kenn",
         "lName2":"Stevenson",
         "pCode2":"1100398",
+        "accountNum2":"1017",
 
         "fName3":"Incredible",
         "lName3":"HULK",
-        "pCode3":"777"
+        "pCode3":"777",
+        "accountNum3":"1018"
 
       }
     },
-    "openAccountDetails":{
+    "customerData":{
+
+      "searchCust":"searchCustomer"
 
     }
   }

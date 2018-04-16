@@ -1,6 +1,6 @@
 import {browser, by, element} from 'protractor';
 
-require('../util/customLocator.ts');
+// require('../util/customLocator.ts');
 const SelectWrapper = require('../util/selectWrapper');
 const mySelect = new SelectWrapper(by.id('userSelect'));
 const currSelect = new SelectWrapper(by.id('currency'));
@@ -70,26 +70,36 @@ const AddCustomerDetails = function () {
 
   };
 
-  this.validateCustomerRecords = function (fName, lName, pCode, accNumber) {
+  // this.validateCustomerRecords = function (fName, lName, pCode, accNumber) {
+  //
+  //   element(by.model('searchCustomer')).sendKeys(fName);
+  //   const firstName = element(by.repeater('cust in Customers').row(0).column('cust.fName'));
+  //   element(by.model('searchCustomer')).sendKeys(lName);
+  //   const lastName = element(by.repeater('cust in Customers').row(0).column('cust.lName'));
+  //   element(by.model('searchCustomer')).sendKeys(pCode);
+  //   const postCode = element(by.repeater('cust in Customers').row(0).column('cust.pCode'));
+  //   element(by.model('searchCustomer')).sendKeys(accNumber);
+  //   const accountNumber = element(by.repeater('account in cust.accountNo').row(0).column('cust.accountNo'));
+  //
+  //   // firstName.getText().then(function (text) {
+  //   //   console.log(text);
+  //   // });
+  //
+  //   return this;
+  //
+  // };
 
-    element(by.model('searchCustomer')).sendKeys(fName);
-    const firstName = element(by.repeater('cust in Customers').row(0).column('cust.fName'));
-    element(by.model('searchCustomer')).sendKeys(lName);
-    const lastName = element(by.repeater('cust in Customers').row(0).column('cust.lName'));
-    element(by.model('searchCustomer')).sendKeys(pCode);
-    const postCode = element(by.repeater('cust in Customers').row(0).column('cust.pCode'));
-    element(by.model('searchCustomer')).sendKeys(accNumber);
-    const accountNumber = element(by.repeater('account in cust.accountNo').row(0).column('cust.accountNo'));
+  this.validateCustomerRecords = function (fname, lname, pcode, accountNum) {
 
-    // firstName.getText().then(function (text) {
-    //   console.log(text);
-    // });
-
-
+    const searchCustomer = element(by.model(OR.locators.customerData.searchCust)).clear();
+    searchCustomer.sendKeys(fname);
+    searchCustomer.sendKeys(lname);
+    searchCustomer.sendKeys(pcode);
+    searchCustomer.sendKeys(accountNum);
 
     return this;
 
-  };
+  }
 
 };
 module.exports = new AddCustomerDetails();
