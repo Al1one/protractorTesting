@@ -33,6 +33,20 @@ describe('Customer Actions Validation', function () {
     });
   });
 
+  // it('Validate different account switch', function () {
+  //
+  //   custHelp.selectCustomerBalance('1017');
+  //   expect(custHelp.getCustomerInfo(OR.locators.addcustomerdetailspage.testdata.accountNum2, '0', 'Pound'));
+  //   browser.sleep(2000);
+  //   custHelp.selectCustomerBalance('1018');
+  //   expect(custHelp.getCustomerInfo(OR.locators.addcustomerdetailspage.testdata.accountNum3, '0', 'Rupee'));
+  //   browser.sleep(2000);
+  //   custHelp.selectCustomerBalance('1016');
+  //   expect(custHelp.getCustomerInfo(OR.locators.addcustomerdetailspage.testdata.accountNum1, '500', 'Dollar'));
+  //   browser.sleep(2000);
+  //
+  // });
+
   it('Validate transaction history table', function () {
 
     const transHistory = element.all(by.repeater('tx in transactions'));
@@ -40,6 +54,13 @@ describe('Customer Actions Validation', function () {
     custHelp.openTransactionTable();
 
     expect(transHistory.count()).toEqual(2);
+
+    transHistory.getText().then(function (text) {
+      console.log(text);
+    });
+
+    custHelp.resetTable();
+    expect(transHistory.count()).toEqual(0);
 
     transHistory.getText().then(function (text) {
       console.log(text);

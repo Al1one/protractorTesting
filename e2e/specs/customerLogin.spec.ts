@@ -8,6 +8,12 @@ const header = require('../pageObjects/headerComponent.po');
 
 describe('Customer Manager login test', function () {
 
+  beforeEach(function () {
+
+    header.mainHeading();
+
+  });
+
   it('Login as Customer', function () {
 
     const customerName = element(by.binding('user'));

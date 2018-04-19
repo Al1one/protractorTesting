@@ -7,6 +7,12 @@ const header = require('../pageObjects/headerComponent.po');
 
 describe('Customer information Test', function() {
 
+  beforeEach(function () {
+
+    header.mainHeading();
+
+  });
+
   base.navigateToURL('http://www.way2automation.com/angularjs-protractor/banking/#/manager/addCust');
 
   it('Adding Customer(s) Information', function() {
@@ -14,11 +20,11 @@ describe('Customer information Test', function() {
     add_customer.gotoAddCustomer();
     add_customer.addCustomerInfo(OR.locators.addcustomerdetailspage.testdata.fName1, OR.locators.addcustomerdetailspage.testdata.lName1, OR.locators.addcustomerdetailspage.testdata.pCode1);
 
-    // add_customer.gotoAddCustomer();
-    // add_customer.addCustomerInfo(OR.locators.addcustomerdetailspage.testdata.fName2, OR.locators.addcustomerdetailspage.testdata.lName2, OR.locators.addcustomerdetailspage.testdata.pCode2);
+    add_customer.gotoAddCustomer();
+    add_customer.addCustomerInfo(OR.locators.addcustomerdetailspage.testdata.fName2, OR.locators.addcustomerdetailspage.testdata.lName2, OR.locators.addcustomerdetailspage.testdata.pCode2);
 
-    // add_customer.gotoAddCustomer();
-    // add_customer.addCustomerInfo(OR.locators.addcustomerdetailspage.testdata.fName3, OR.locators.addcustomerdetailspage.testdata.lName3, OR.locators.addcustomerdetailspage.testdata.pCode3);
+    add_customer.gotoAddCustomer();
+    add_customer.addCustomerInfo(OR.locators.addcustomerdetailspage.testdata.fName3, OR.locators.addcustomerdetailspage.testdata.lName3, OR.locators.addcustomerdetailspage.testdata.pCode3);
 
   });
 
@@ -27,11 +33,17 @@ describe('Customer information Test', function() {
     add_customer.gotoOpenAccount();
     add_customer.openAccount(6, 'Dollar');
 
-    // add_customer.gotoOpenAccount();
-    // add_customer.openAccount(7, 'Pound');
+    add_customer.gotoOpenAccount();
+    add_customer.openAccount(6, 'Pound');
 
-    // add_customer.gotoOpenAccount();
-    // add_customer.openAccount(8, 'Rupee');
+    add_customer.gotoOpenAccount();
+    add_customer.openAccount(6, 'Rupee');
+
+    add_customer.gotoOpenAccount();
+    add_customer.openAccount(7, 'Pound');
+
+    add_customer.gotoOpenAccount();
+    add_customer.openAccount(8, 'Rupee');
 
   }) ;
 
@@ -79,7 +91,23 @@ describe('Validating that record is present in table', function () {
 
     add_customer.gotoCustomerSearch();
     add_customer.validateCustomerRecords('', '', '', '1016');
-    expect((getRow.get(0) && getCell.get(3)).getText()).toEqual(OR.locators.addcustomerdetailspage.testdata.accountNum1);
+    expect((getRow.get(0) && getCell.get(3)).getText()).toContain(OR.locators.addcustomerdetailspage.testdata.accountNum1);
+
+    getCell.get(3).getText().then(text => {
+      console.log('Account number: ' + text);
+    });
+
+    add_customer.gotoCustomerSearch();
+    add_customer.validateCustomerRecords('', '', '', '1017');
+    expect((getRow.get(0) && getCell.get(3)).getText()).toContain(OR.locators.addcustomerdetailspage.testdata.accountNum2);
+
+    getCell.get(3).getText().then(text => {
+      console.log('Account number: ' + text);
+    });
+
+    add_customer.gotoCustomerSearch();
+    add_customer.validateCustomerRecords('', '', '', '1018');
+    expect((getRow.get(0) && getCell.get(3)).getText()).toContain(OR.locators.addcustomerdetailspage.testdata.accountNum3);
 
     getCell.get(3).getText().then(text => {
       console.log('Account number: ' + text);

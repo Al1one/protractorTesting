@@ -6,6 +6,12 @@ const header = require('../pageObjects/headerComponent.po');
 
 describe('Bank Manager login test', function () {
 
+  beforeEach(function () {
+
+    header.mainHeading();
+
+  });
+
   const home_page = require('../pageObjects/HomePage.po');
   it('Login as Bank Manager', function () {
 

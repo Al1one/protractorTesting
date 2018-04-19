@@ -98,12 +98,18 @@ export const CustomerInformation = function () {
 
   };
 
-  const transactionTable = function () {
+  this.selectCustomerBalance = function (accNum) {
 
-    const backBtn = element(by.css('[ng-click="back()"]'));
-    const resetBtn = element(by.css('[ng-click="reset()"]'));
+    mySelect.selectByPartialText(accNum);
+    return this;
+
+  };
 
 
+  this.resetTable = function () {
+
+    element(by.css('[ng-click="reset()"]')).click();
+    return this;
 
   };
 
