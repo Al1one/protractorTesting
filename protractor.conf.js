@@ -6,7 +6,10 @@ const { SpecReporter } = require('jasmine-spec-reporter');
 exports.config = {
   allScriptsTimeout: 11000,
   specs: [
-    './e2e/specs/addCustomerInfo.spec.ts'
+    './e2e/specs/bankManagerLogin.spec.ts',
+    './e2e/specs/addCustomerInfo.spec.ts',
+    './e2e/specs/customerLogin.spec.ts',
+    './e2e/specs/customerActionValidation.spec.ts'
   ],
   suites: {
     functional: ['./e2e/specs/functional/**.spec.ts'],

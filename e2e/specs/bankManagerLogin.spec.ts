@@ -2,6 +2,7 @@ import {browser} from 'protractor';
 
 const base = require('../pageObjects/BasePage.po');
 const OR = require('../jsons/OR.json');
+const header = require('../pageObjects/headerComponent.po');
 
 describe('Bank Manager login test', function () {
 
@@ -10,7 +11,6 @@ describe('Bank Manager login test', function () {
 
     base.navigateToURL(OR.testsiteurl);
     const customer = home_page.loginAsBankManager();
-    customer.gotoAddCustomer().addCustomerInfo(OR.locators.addcustomerdetailspage.testdata.fName, OR.locators.addcustomerdetailspage.testdata.lName, OR.locators.addcustomerdetailspage.testdata.pCode);
     const title = base.getPageTitle();
     expect(title).toBe('Protractor practice website - Banking App');
     browser.sleep(2000);

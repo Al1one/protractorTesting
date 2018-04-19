@@ -1,18 +1,17 @@
 import {by, element} from 'protractor';
 
-require('../util/customLocator');
-
 const HomePage = function () {
 
   this.loginAsCustomer = function () {
 
-    element(by.buttonText('Customer Login')).click();
+    element(by.css('[ng-click="customer()"]')).click();
+    return require('./CustomerInformation.po');
 
   };
 
   this.loginAsBankManager = function () {
 
-    element(by.ngClick('manager()')).click();
+    element(by.css('[ng-click="manager()"]')).click();
     return require('./AddCustomerDetails.po');
 
   };
